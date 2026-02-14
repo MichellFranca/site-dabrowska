@@ -1,0 +1,410 @@
+/* --- IDENTIDADE VISUAL --- */
+:root {
+  --cor-terracota: #c05640;
+  --cor-creme: #f9f5f0;
+  --cor-dourado: #d4af37;
+  --cor-texto: #3e2723;
+  --cor-branco: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: var(--cor-creme);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  /* Evita rolagem horizontal indesejada no celular */
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  color: var(--cor-terracota);
+}
+
+/* --- CABEÇALHO --- */
+header {
+  background-color: var(--cor-branco);
+  padding: 0.5rem 5%; /* Menos padding vertical */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px; /* AUMENTEI AQUI: Barra mais alta */
+}
+
+.logo {
+  font-size: 1.4rem; /* AUMENTEI AQUI: Letra maior */
+  font-weight: 700;
+  color: var(--cor-terracota);
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Mais espaço entre logo e texto */
+  white-space: nowrap;
+}
+
+.logo img {
+  height: 80px; /* AUMENTEI AQUI: Imagem bem maior (era 40px) */
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adicionei uma sombrinha para destacar */
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--cor-texto);
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--cor-terracota);
+}
+
+.carrinho-btn {
+  position: relative;
+  cursor: pointer;
+  font-size: 1.4rem; /* Ícone maior para dedo */
+  color: var(--cor-terracota);
+  padding: 5px; /* Área de toque maior */
+}
+
+.contador {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--cor-texto);
+  color: var(--cor-dourado);
+  font-size: 0.7rem;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* --- HERO --- */
+.hero {
+  height: 90vh;
+  min-height: 500px;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("imagens/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+  margin-top: 80px; /* AJUSTADO AQUI: Para compensar o novo cabeçalho */
+}
+
+.hero h1 {
+  font-size: 4.5rem; /* Fonte menor no celular */
+  color: var(--cor-branco);
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.cta-button {
+  background-color: var(--cor-dourado);
+  color: var(--cor-texto);
+  padding: 15px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: 0.3s;
+  border: 2px solid var(--cor-dourado);
+  display: inline-block;
+}
+
+/* --- PRODUTOS --- */
+.secao {
+  padding: 3rem 5%;
+}
+
+.titulo-secao {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.titulo-secao::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--cor-terracota);
+  margin: 10px auto;
+}
+
+/* GRID RESPONSIVO CORRIGIDO */
+/* 1. Celular (Padrão): 1 coluna só, bem grande */
+.grid-produtos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* 2. Tablet (Telas médias): 2 colunas */
+@media (min-width: 600px) {
+  .grid-produtos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 3. Computador (Telas grandes): EXATAMENTE 3 colunas */
+@media (min-width: 1024px) {
+  .grid-produtos {
+    /* O segredo está aqui: repeat(3, 1fr) força ser 3 */
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card-produto {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+}
+
+.img-produto {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  background-color: #eee;
+}
+
+.info-produto {
+  padding: 1.5rem;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-produto h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--cor-texto);
+}
+
+.preco {
+  color: var(--cor-terracota);
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin: 10px 0;
+  display: block;
+}
+
+.btn-add {
+  background-color: var(--cor-texto);
+  color: white;
+  border: none;
+  padding: 15px 20px; /* Botão mais alto para facilitar toque */
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+/* --- HISTÓRIA --- */
+.historia-bg {
+  background-color: #e8e0d5;
+  display: flex;
+  flex-direction: column; /* Celular: Um embaixo do outro */
+  gap: 2rem;
+}
+
+/* A partir do PC, fica lado a lado */
+@media (min-width: 768px) {
+  .historia-bg {
+    flex-direction: row;
+  }
+}
+
+.historia-texto {
+  flex: 1;
+}
+
+.historia-img {
+  width: 100%;
+  height: 300px; /* Altura fixa no celular */
+  background-image: url("https://images.unsplash.com/photo-1556910103-1c02745a30bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+  .historia-img {
+    height: 400px;
+    flex: 1;
+  }
+}
+
+/* --- RODAPÉ --- */
+footer {
+  background-color: var(--cor-texto);
+  color: var(--cor-creme);
+  padding: 3rem 5%;
+  text-align: center;
+}
+
+.social-icons a {
+  color: var(--cor-dourado);
+  font-size: 1.8rem; /* Ícones maiores no celular */
+  margin: 0 15px;
+  transition: 0.3s;
+  display: inline-block;
+  padding: 10px; /* Área de toque */
+}
+
+/* --- MODAL CARRINHO (CORREÇÃO MOBILE) --- */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  justify-content: flex-end; /* No PC joga pra direita */
+  align-items: flex-end; /* No celular joga pra baixo */
+}
+
+.modal-carrinho {
+  background: white;
+  width: 100%; /* No celular ocupa 100% da largura */
+  max-width: 400px; /* No PC trava em 400px */
+  height: 80vh; /* Ocupa 80% da altura no celular (estilo iFood) */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s; /* Animação de subir */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+/* No PC, a animação é lateral e altura total */
+@media (min-width: 768px) {
+  .modal-overlay {
+    align-items: stretch;
+  } /* Ocupa altura toda */
+  .modal-carrinho {
+    height: 100%;
+    border-radius: 0;
+    animation: slideIn 0.3s;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.itens-lista {
+  flex: 1;
+  overflow-y: auto;
+  margin: 1rem 0;
+}
+
+.item-carrinho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.btn-whats {
+  background-color: #25d366;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-top: 10px;
+  display: block;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.fechar-modal {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  align-self: flex-end; /* Botão X no canto direito */
+  color: var(--cor-terracota);
+  padding: 0 10px;
+}
+
+/* --- REGRAS ESPECÍFICAS PARA CELULAR --- */
+@media (max-width: 768px) {
+  /* Esconde o menu de texto no celular para não bagunçar */
+  nav ul {
+    display: none;
+  }
+
+  /* Ajusta tamanho da logo */
+  .logo span {
+    font-size: 1rem;
+  }
+
+  /* Hero texto menor */
+  .hero h1 {
+    font-size: 2rem;
+  }
+}

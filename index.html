@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dabrowska Biscoitaria | Tradição Artesanal</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="logo-dabrowska.png" alt="Logo Dabrowska" />
+        <span>Dabrowska Biscoitaria</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#produtos">Menu</a></li>
+          <li><a href="#historia">História</a></li>
+        </ul>
+      </nav>
+      <div class="carrinho-btn" onclick="abrirCarrinho()">
+        <i class="fas fa-shopping-basket"></i>
+        <span class="contador" id="contador">0</span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>Tradição Europeia,<br />Calor da Bahia.</h1>
+      <p>
+        Biscoitos artesanais e Cookies Premium feitos à mão para momentos
+        inesquecíveis.
+      </p>
+      <a href="#produtos" class="cta-button">Ver Menu de Hoje</a>
+    </section>
+
+    <section id="produtos" class="secao">
+      <h2 class="titulo-secao">Nossas Delícias</h2>
+      <div class="grid-produtos">
+        <div class="card-produto">
+          <img
+            src="imagens/biscoito01.jpg"
+            alt="Cookie Americano"
+            class="img-produto"
+          />
+          <div class="info-produto">
+            <div>
+              <h3>Cookie Americano Clássico</h3>
+              <p>
+                Crocante na borda, macio no centro. Com chocolate meio amargo
+                nobre.
+              </p>
+            </div>
+            <div>
+              <span class="preco">R$ 6,00 (unid)</span>
+              <button
+                class="btn-add"
+                id="btn-cookie"
+                onclick="adicionarAoCarrinho('cookie_americano')"
+              >
+                Carregando...
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-produto">
+          <img
+            src="imagens/biscoito02.jpg"
+            alt="Casadinho de Goiabada"
+            class="img-produto"
+          />
+          <div class="info-produto">
+            <div>
+              <h3>Casadinho de Goiabada</h3>
+              <p>
+                Massa amanteigada que derrete na boca com recheio generoso de
+                goiabada cascão.
+              </p>
+            </div>
+            <div>
+              <span class="preco">R$ 18,00 (Pote)</span>
+              <button
+                class="btn-add"
+                id="btn-casadinho"
+                onclick="adicionarAoCarrinho('casadinho')"
+              >
+                Carregando...
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-produto">
+          <img
+            src="imagens/biscoito03.jpg"
+            alt="Cookie no Pote"
+            class="img-produto"
+          />
+          <div class="info-produto">
+            <div>
+              <h3>Mix Dabrowska (No Pote)</h3>
+              <p>
+                A experiência de fazer o cookie perfeito na sua casa. Ótimo para
+                presentear!
+              </p>
+            </div>
+            <div>
+              <span class="preco">R$ 45,00</span>
+              <button
+                class="btn-add"
+                id="btn-mix"
+                onclick="adicionarAoCarrinho('mix_pote')"
+              >
+                Carregando...
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-produto">
+          <img
+            src="imagens/biscoito02.jpg"
+            alt="Casadinho de chocolate"
+            class="img-produto"
+          />
+          <div class="info-produto">
+            <div>
+              <h3>Casadinho de chocolate</h3>
+              <p>
+                Massa amanteigada que derrete na boca com recheio generoso de
+                chocolate meio amargo.
+              </p>
+            </div>
+            <div>
+              <span class="preco">R$ 18,00 (Pote)</span>
+              <button
+                class="btn-add"
+                id="btn-casadinho-chocolate"
+                onclick="adicionarAoCarrinho('casadinho_chocolate')"
+              >
+                Carregando...
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-produto">
+          <img
+            src="imagens/biscoito02.jpg"
+            alt="Casadinho de Maracujá"
+            class="img-produto"
+          />
+          <div class="info-produto">
+            <div>
+              <h3>Casadinho de Maracujá</h3>
+              <p>
+                Massa amanteigada que derrete na boca com recheio generoso de
+                maracujá.
+              </p>
+            </div>
+            <div>
+              <span class="preco">R$ 18,00 (Pote)</span>
+              <button
+                class="btn-add"
+                id="btn-casadinho-maracuja"
+                onclick="adicionarAoCarrinho('casadinho_maracuja')"
+              >
+                Carregando...
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-produto">
+          <img
+            src="imagens/biscoito02.jpg"
+            alt="Casadinho de Queijo"
+            class="img-produto"
+          />
+          <div class="info-produto">
+            <div>
+              <h3>Casadinho de Queijo</h3>
+              <p>
+                Massa amanteigada que derrete na boca com recheio generoso de
+                queijo parmesão.
+              </p>
+            </div>
+            <div>
+              <span class="preco">R$ 18,00 (Pote)</span>
+              <button
+                class="btn-add"
+                id="btn-casadinho-queijo"
+                onclick="adicionarAoCarrinho('casadinho_queijo')"
+              >
+                Carregando...
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="historia" class="secao historia-bg">
+      <div class="historia-texto">
+        <h2 class="titulo-secao" style="text-align: left; margin-bottom: 1rem">
+          O Segredo do Sabor
+        </h2>
+        <p>
+          A <strong>Dabrowska Biscoitaria</strong> nasceu do encontro entre a
+          técnica refinada da confeitaria europeia e a alegria de viver de
+          Salvador.
+        </p>
+        <br />
+        <p>
+          Nossa missão é simples: transformar ingredientes nobres em pequenos
+          momentos de felicidade. Cada biscoito é boleado à mão, respeitando o
+          tempo de forno e o descanso da massa, garantindo uma textura que você
+          não encontra em nenhum outro lugar.
+        </p>
+      </div>
+      <div class="historia-img"></div>
+    </section>
+
+    <footer>
+      <h3>Dabrowska Biscoitaria</h3>
+      <p>Salvador, Bahia</p>
+      <div class="social-icons" style="margin-top: 20px">
+        <a href="https://www.instagram.com/michelldabrowska" target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="https://wa.me/5571999092470" target="_blank"
+          ><i class="fab fa-whatsapp"></i
+        ></a>
+      </div>
+      <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.7">
+        &copy; 2024 Michell França. Todos os direitos reservados.
+      </p>
+    </footer>
+
+    <div class="modal-overlay" id="modalCarrinho">
+      <div class="modal-carrinho">
+        <button class="fechar-modal" onclick="fecharCarrinho()">&times;</button>
+        <h2 style="font-size: 1.5rem; margin-bottom: 20px">Seu Pedido</h2>
+
+        <div class="itens-lista" id="listaItens">
+          <p style="color: #999; text-align: center; margin-top: 20px">
+            Seu carrinho está vazio.
+          </p>
+        </div>
+
+        <div style="border-top: 1px solid #ccc; padding-top: 20px">
+          <p
+            style="
+              font-size: 1.2rem;
+              display: flex;
+              justify-content: space-between;
+            "
+          >
+            <span>Total:</span>
+            <strong>R$ <span id="valorTotal">0,00</span></strong>
+          </p>
+          <a
+            href="#"
+            class="btn-whats"
+            id="btnFinalizar"
+            onclick="enviarWhatsapp()"
+          >
+            <i class="fab fa-whatsapp"></i> Enviar Pedido no Zap
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
