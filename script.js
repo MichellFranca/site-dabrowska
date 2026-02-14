@@ -35,6 +35,9 @@ const produtosMap = {
     'casadinho_chocolate': { nome: 'Casadinho de Chocolate', preco: 18.00, idBotao: 'btn-casadinho-chocolate' },
     'casadinho_maracuja': { nome: 'Casadinho de Maracujá', preco: 18.00, idBotao: 'btn-casadinho-maracuja' },
     'casadinho_queijo': { nome: 'Casadinho de Queijo', preco: 18.00, idBotao: 'btn-casadinho-queijo' },
+    'fit_amendoim': { nome: 'Cookie Fit', preco: 18.00, idBotao: 'btn-fit-amendoim' },
+    'cracker_parmesao': { nome: 'Cracker de parmesão', preco: 18.00, idBotao: 'btn-cracker' },
+    'bolo_sgluten': { nome: 'Bolo Sem Glutén', preco: 20.00, idBotao: 'btn-bolo-sgluten' },
 };
 
 // --- 3. LÓGICA DO CARRINHO ---
